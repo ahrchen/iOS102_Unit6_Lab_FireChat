@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
 
+    @Environment(AuthManager.self) var authManager
+    
     @State private var email: String = ""
     @State private var password: String = ""
 
@@ -31,17 +33,22 @@ struct LoginView: View {
                 Button("Sign Up") {
                     print("Sign up user: \(email), \(password)")
                     // TODO: Sign up user
-
+                    authManager.signUp(email: email, password: password)
                 }
                 .buttonStyle(.borderedProminent) // <-- Style button
 
                 Button("Login") {
                     print("Login user: \(email), \(password)")
                     // TODO: Login user
-
+                    authManager.signIn(email: email, password: password)
                 }
                 .buttonStyle(.bordered) // <-- Style button
             }
         }
     }
+}
+
+#Preview {
+    LoginView()
+        .environment(AuthManager())
 }
