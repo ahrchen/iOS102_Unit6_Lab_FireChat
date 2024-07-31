@@ -12,7 +12,7 @@ struct ChatView: View {
     @Environment(AuthManager.self) var authManager
     @State var messageManager: MessageManager
     
-    init(isMocked: Bool = true) {
+    init(isMocked: Bool = false) {
         messageManager = MessageManager(isMocked: isMocked)
     }
     
@@ -26,6 +26,11 @@ struct ChatView: View {
                 }
             }
             .defaultScrollAnchor(.bottom)
+            .safeAreaInset(edge: .bottom) { // <-- Add safeAreaInset modifier to add and display send message view above the bottom safe area
+                SendMessageView { messageText in // <-- Add SendMessageView
+                    messageManager.sendMessage(text: messageText, username: authManager.userEmail ?? "")
+                }
+            }
         }
     }
     
@@ -57,6 +62,39 @@ struct ChatView: View {
                 )
                 .padding(isOutgoing ? .trailing : .leading, 12) // <-- Set padding based on outgoing status
                 .containerRelativeFrame(.horizontal, count: 7, span: 5, spacing: 0, alignment: isOutgoing ? .trailing : .leading) // <-- Set message size relative to container (the scroll view width in this case)
+        }
+    }
+    
+    struct SendMessageView: View {
+        var onSend: (String) -> Void // <-- Closure called with a message passed in when send message button is tapped
+
+        @State private var messageText: String = "" // <-- Local state managed var to hold the message text as user types
+
+        var body: some View {
+            HStack(alignment: .bottom, spacing: 0) {
+                TextField("Message", text: $messageText, axis: .vertical) // <-- Message text field
+                    .padding(.leading)
+                    .padding(.trailing, 4)
+                    .padding(.vertical, 8)
+
+                // Send message button
+                Button {
+                    onSend(messageText) // <-- Call onSend closure passing in the message text when send button is tapped
+                    messageText = "" // <-- Clear the message text after being sent
+                } label: {
+                    Image(systemName: "arrow.up.circle.fill") // <-- Use arrow image from SFSymbols
+                        .resizable()
+                        .frame(width: 30, height: 30)
+                        .bold()
+                        .padding(4)
+                }
+                .disabled(messageText.isEmpty) // <-- Disable button if text is empty
+            }
+            .overlay(RoundedRectangle(cornerRadius: 19).stroke(Color(uiColor: .systemGray2)))
+            .padding(.horizontal)
+            .padding(.vertical, 8)
+            .background(.thickMaterial) // <-- Add material to background
+            //        .focused($isMessageFieldFocused)
         }
     }
 
