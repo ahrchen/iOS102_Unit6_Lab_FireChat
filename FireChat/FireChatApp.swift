@@ -21,18 +21,8 @@ struct FireChatApp: App {
     var body: some Scene {
         WindowGroup {
             if authManager.user != nil {
-                NavigationStack {
-                    Text("Welcome to FireChat!")
-                        .navigationTitle("Chat")
-                        .navigationBarTitleDisplayMode(.inline)
-                        .toolbar {
-                            ToolbarItem {
-                                Button("Sign Out") {
-                                    authManager.signOut()
-                                }
-                            }
-                        }
-                }
+                ChatView()
+                    .environment(authManager)
             } else {
                 LoginView()
                     .environment(authManager)

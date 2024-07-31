@@ -15,6 +15,9 @@
 		EEB0B56A2C5ADB5A0064A264 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EEB0B5692C5ADB5A0064A264 /* FirebaseFirestore */; };
 		EEB0B56C2C5ADD540064A264 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB0B56B2C5ADD540064A264 /* LoginView.swift */; };
 		EEB0B56E2C5ADE1F0064A264 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB0B56D2C5ADE1D0064A264 /* AuthManager.swift */; };
+		EEB0B5702C5AE9470064A264 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB0B56F2C5AE9470064A264 /* Message.swift */; };
+		EEB0B5722C5AE9A50064A264 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB0B5712C5AE9970064A264 /* MessageManager.swift */; };
+		EEB0B5742C5AEF4E0064A264 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB0B5732C5AEF4E0064A264 /* ChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,9 @@
 		EEB0B5592C5AD8AA0064A264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EEB0B56B2C5ADD540064A264 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		EEB0B56D2C5ADE1D0064A264 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		EEB0B56F2C5AE9470064A264 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		EEB0B5712C5AE9970064A264 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		EEB0B5732C5AEF4E0064A264 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,9 @@
 				EEB0B54B2C5AD7B70064A264 /* FireChatApp.swift */,
 				EEB0B56D2C5ADE1D0064A264 /* AuthManager.swift */,
 				EEB0B56B2C5ADD540064A264 /* LoginView.swift */,
+				EEB0B56F2C5AE9470064A264 /* Message.swift */,
+				EEB0B5712C5AE9970064A264 /* MessageManager.swift */,
+				EEB0B5732C5AEF4E0064A264 /* ChatView.swift */,
 				EEB0B54F2C5AD7B80064A264 /* Assets.xcassets */,
 				EEB0B5592C5AD8AA0064A264 /* GoogleService-Info.plist */,
 				EEB0B5512C5AD7B80064A264 /* Preview Content */,
@@ -164,7 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB0B56E2C5ADE1F0064A264 /* AuthManager.swift in Sources */,
+				EEB0B5702C5AE9470064A264 /* Message.swift in Sources */,
+				EEB0B5722C5AE9A50064A264 /* MessageManager.swift in Sources */,
 				EEB0B56C2C5ADD540064A264 /* LoginView.swift in Sources */,
+				EEB0B5742C5AEF4E0064A264 /* ChatView.swift in Sources */,
 				EEB0B54C2C5AD7B70064A264 /* FireChatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
